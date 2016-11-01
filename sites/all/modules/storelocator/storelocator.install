@@ -1,0 +1,55 @@
+<?php
+/**
+ * @file
+ * Install, update and uninstall functions for the storelocator module.
+ *
+ */
+
+/**
+ * Rename 5.x-1.0 permission "admin gmaplocation", 6.x-1.0 permission
+ * "edit gmaplocation", and 6.x-2.0 permission "administer gmaplocation"
+ * to "Administer location map".
+ */
+function storelocator_update_100() {
+
+  // Create locationmap variables. If gmaplocation variables exist, set to those values.
+  variable_set('storelocator_address');
+  variable_set('storelocator_block_text_top');
+  variable_set('storelocator_body');
+  variable_set('storelocator_footer');
+  variable_set('storelocator_height');
+  variable_set('storelocator_info');
+  variable_set('storelocator_key');
+  variable_set('storelocator_lat');
+  variable_set('storelocator_lng');
+  variable_set('storelocator_title');
+  variable_set('storelocator_type');
+  variable_set('storelocator_width');
+  variable_set('storelocator_zoom');
+
+ 
+  // hook_update_N() no longer returns a $ret array. Instead, return
+  // nothing or a translated string indicating the update ran successfully.
+  // See http://drupal.org/node/224333#update_sql.
+  return t('Created storelocator variables.');
+}
+
+/**
+ * Implementation of hook_uninstall.
+ * @see http://drupal.org/node/1354
+ */
+function storelocator_uninstall() {
+  variable_del('storelocator_address');
+  variable_del('storelocator_block_text_top');
+  variable_del('storelocator_body');
+  variable_del('storelocator_footer');
+  variable_del('storelocator_height');
+  variable_del('storelocator_info');
+  variable_del('storelocator_key');
+  variable_del('storelocator_lat');
+  variable_del('storelocator_lng');
+  variable_del('storelocator_title');
+  variable_del('storelocator_type');
+  variable_del('storelocator_width');
+  variable_del('storelocator_zoom');
+}

@@ -1,0 +1,18 @@
+name = Store Locator
+description = Display one geographical location via Google Maps.
+core = 7.x
+
+files[] = storelocator.install
+files[] = storelocator.module
+files[] = potx-cli.php
+files[] = potx.inc
+files[] = tests/storelocator.test
+
+configure = admin/config/content/storelocator
+
+; Information added by Drupal.org packaging script on 2014-05-24
+version = "7.x-2.3"
+core = "7.x"
+project = "storelocator"
+datestamp = "1400942328"
+
