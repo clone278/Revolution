@@ -252,11 +252,18 @@ function storelocator_page() {
 
   drupal_add_js('//maps.google.com/maps/api/js?key=AIzaSyCkP7DM8dsc9Z6x1f1p093ZQHjQY_kmVhk&v=3&sensor=false',  array('type' => 'external', 'weight' => 5));
   drupal_add_js($path . '/storelocator.js', array('type' => 'file', 'weight' => 6, 'scope' => 'footer'));
+    // bjb added this
+  drupal_add_js($path . '/js/mapbox-gl.js', array('type' => 'file', 'weight' => 6, 'scope' => 'header'));
 
   $storelocator_css_options = array(
     'preprocess'  => FALSE,
   );
   drupal_add_css($path . '/storelocator.css', $storelocator_css_options);
+  // bjb added this
+  $storelocator_css_options = array(
+    'preprocess'  => TRUE,
+  );
+  drupal_add_css($path . '/css/mapbox-gl.css', $storelocator_css_options);
 
   $storelocator_settings = array(
     'address' => variable_get('storelocator_address', 'Fiordland, New Zealand'),
@@ -270,16 +277,23 @@ function storelocator_page() {
   if (!$storelocator_settings['info']) {
     $storelocator_settings['info'] = $storelocator_settings['address'];
   }
+
   drupal_add_js(array('storelocator' => $storelocator_settings), 'setting');
+
   $output = '<div id="storelocator_body">' . $storelocator_body['value'] . '</div>';
   $output .= theme('storelocator_map');
   $output .= '<div id="storelocator_footer">' . $storelocator_footer['value'] . '</div>';
+
+
+
   if (user_access('administer storelocator')) {
     // TODO: Remove drupal_render and update to D7 desired behaviour. See http://drupal.org/update/modules/6/7#unrendered
     $form = drupal_get_form('storelocator_in_place_edit_form');
     $output .= drupal_render($form);
   }
+
   drupal_set_title($storelocator_title);
+
   return $output;
 }
 
@@ -569,6 +583,7 @@ function theme_storelocator_block_image_link() {
  * @ingroup themeable
  */
 function theme_storelocator_map($variables) {
+
   if (empty($variables['width'])) {
     $width = variable_get('storelocator_width', '500') . 'px';
   } else {
@@ -580,7 +595,26 @@ function theme_storelocator_map($variables) {
     $height = $variables['height'] . 'px';
   }
 
-  return ('<div id="storelocator_map" style="width: ' . $width . '; height: ' . $height . '"></div>');
+  $output = '<div class="storelocator">';
+  $output .= '<div class="sidebar">';
+  $output .= '<div class="heading section-head">';
+  $output .= '<h4>Attractions</h4>';
+  $output .= '</div>';
+  $output .= '<div id="storelocator_listings" class="listings"></div>';
+  $output .= '<div class="filter-ctrl">';
+  $output .= '<label for="filter-input">Filter:</label>';
+  $output .= '<input id="filter-input" type="text" name="filter" placeholder="Filter by tag" />';
+  $output .= '</div>';
+  $output .= '</div>';
+  $output .= '<div id="storelocator_map" style="position: absolute;"" class="map"> </div>';
+  $output .= '</div>';  
+
+  /*
+  $output = '<div id="storelocator_map" style="width: ' . $width . '; height: ' . $height . '"></div>';
+  $output .= theme('storelocator_map');
+  $output .= '<div id="storelocator_footer">' . $storelocator_footer['value'] . '</div>';*/
+
+  return ($output);
 }
 
 /**

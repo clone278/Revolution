@@ -137,3 +137,29 @@ a:link, a:visited {
         .page-checkout form#user-login #user_login_form .login-password:hover {
           color: #00ab90;
           /*text-decoration: underline;*/ }
+
+.node-product-type .field-type-commerce-product-reference form.commerce-add-to-cart .form-submit {
+    background-color: #00ab90;
+}
+
+.navigation .primary-menu ul li a.active {
+    color: #00ab90;
+}
+
+.navigation .second-menu ul li a.active {
+    color: #00ab90;
+}
+
+#region-user-second {
+    height: 34px;
+}
+
+.zone-user-wrapper {
+    height: 40px;
+}
+
+#block-views-exp-display-products-page {
+    float: left;
+    padding-top: 0px;
+}
+

@@ -1,3 +1,272 @@
 #storelocatormap_map img {
   max-width: none;
 }
+
+body {
+	/*color:#404040;
+	font:400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;*/
+	/*color: #575859;*/
+	/*font: 16px/30px "merriweather-regular",serif;*/
+	margin:0;
+	padding:0;
+	-webkit-font-smoothing:antialiased;
+}
+
+* {
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+}
+
+.sidebar {
+	background: #fff none repeat scroll 0 0;
+	position:absolute;
+	width:33.3333%;
+	height:100%;
+	top:0;left:0;
+	overflow:hidden;
+	/*border-right:1px solid rgba(0,0,0,0.25);*/
+}
+.pad2 {
+	padding:20px;
+}
+
+.storelocator {
+	width:100%;
+	height:900px;
+}
+
+.map {
+	position:absolute;
+	left:33.3333%;
+	width:66.6666%;
+	top:0;bottom:0;
+}
+
+h1 {
+	font-size:22px;
+	margin:0;
+	font-weight:400;
+	line-height: 20px;
+	padding: 20px 2px;
+}
+
+a {
+	color: #00AB90;
+	font: 18px/36px "raleway-heavy",sans-serif;
+	letter-spacing: 0;
+	margin-bottom: 6px;
+	padding: 0;
+	text-transform: none;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.heading {
+	color: #000;
+	font: 15px/30px "raleway-heavy",sans-serif;
+	letter-spacing: 2.5px;
+	margin-bottom: 20px;
+	margin-top: 18px;
+	margin-left:10px;
+	text-transform: uppercase;
+}
+
+.section-head h1 span{
+	color: #00AB90;
+	left: 3px;
+	position: relative;
+}
+
+.listings {
+	height:75%;
+	overflow:auto;
+	padding-bottom:60px;
+}
+
+.listings .item {
+	display:block;
+	border-bottom:1px solid #575859;
+	padding:10px;
+	text-decoration:none;
+}
+
+.listings .item:last-child { border-bottom:none; }
+.listings .item .title {
+	display:block;
+	color:#00AB90;
+	font-weight:700;
+	margin-right:0;
+}
+
+.listings .item div {
+	margin:10px 0;
+}
+
+.listings .item .title small { font-weight:400; }
+.listings .item.active .title,
+.listings .item .title:hover { color:#27CEB2; }
+.listings .item.active {
+	background-color:#eee;
+}
+.filter-ctrl {
+
+	margin-bottom: 20px;
+	margin-top: 18px;
+	margin-left: 10px;
+	text-transform: uppercase;
+}
+
+.filter-ctrl input[type=text] {
+	font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	width: 60%;
+	border: 0;
+	background-color: #fff;
+	height: 40px;
+	margin-left: 10px;
+	color: rgba(0,0,0,.5);
+	padding: 10px;
+	box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
+	border-radius: 3px;
+}
+
+.contact{
+	color: #000;
+	font-size: 13px;
+	line-height: 15px;
+	font-weight: bold;
+}
+.desc{
+	/*font: 16px "merriweather-regular",serif;*/
+}
+.tags{
+	color: #00AB90;
+}
+.teaser
+{
+	width:100%;
+	/*height:200px;*/
+	overflow:hidden;
+}
+::-webkit-scrollbar {
+	width:3px;
+	height:3px;
+	border-left:0;
+	background:rgba(0,0,0,0.1);
+}
+::-webkit-scrollbar-track {
+	background:none;
+}
+::-webkit-scrollbar-thumb {
+	background:#00853e;
+	border-radius:0;
+}
+
+.marker {
+	border: none;
+	cursor: pointer;
+	height: 56px;
+	width: 56px;
+	/*background-image: url(../static/images/marker.png);*/
+	background-color: rgba(0, 0, 0, 0);
+	transform: translate(28px, 56px, 0);
+}
+
+.clearfix { display:block; }
+.clearfix:after {
+	content:'.';
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden;
+}
+
+/* Marker tweaks */
+.mapboxgl-popup {
+	padding-bottom: 50px;
+}
+
+.mapboxgl-popup-close-button {
+	display:none;
+}
+.mapboxgl-popup-content {
+	font:400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
+	padding:0;
+	width:180px;
+}
+.mapboxgl-popup-content-wrapper {
+	padding:1%;
+}
+.mapboxgl-popup-content h3 {
+	background:#000;
+	color:#fff;
+	margin:0;
+	display:block;
+	padding:10px;
+	border-radius:3px 3px 0 0;
+	font-weight:700;
+	margin-top:-15px;
+}
+
+.mapboxgl-popup-content h4 {
+	margin:0;
+	display:block;
+	padding: 10px 10px 10px 10px;
+	font-weight:400;
+	margin: 0;
+}
+
+.mapboxgl-popup-content div {
+	padding:10px;
+}
+
+.mapboxgl-container .leaflet-marker-icon {
+	cursor:pointer;
+}
+
+.mapboxgl-popup-anchor-top > .mapboxgl-popup-content {
+	margin-top: 15px;
+}
+
+.mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
+	border-bottom-color: #000;
+}
+
+.button,
+.button:visited,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+	display: inline-block;
+	font: 16px/30px "raleway-heavy", sans-serif;
+	padding: 9px 16px;
+	margin: 0 3px 6px 35px;
+	background: #00AB90;
+	color: #000000;
+	text-decoration: none;
+	cursor: pointer;
+	height: auto;
+	text-align: center;
+	border: none;
+	-webkit-appearance: none;
+	-webkit-font-smoothing: inherit;
+	border-radius: 3px;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover {
+	color: #FFFFFF;
+	background: #e64e04;
+}

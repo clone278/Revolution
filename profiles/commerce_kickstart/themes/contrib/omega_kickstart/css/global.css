@@ -2736,26 +2736,7 @@ article.comment {
     float: right;
     margin: 1em 0;
     padding-top: 9px; }
-  .page-user a.login-register,
-  .page-user a.login-account,
-  .page-checkout a.login-register,
-  .page-checkout a.login-account {
-    background: #207cca;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #2698f2), color-stop(1, #207cca));
-    background: -moz-linear-gradient(top center, #2698f2 0%, #207cca 100%);
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -khtml-border-radius: 4px;
-    border-radius: 4px;
-    color: white;
-    font-size: 16px;
-    margin-left: 0px;
-    padding: 15px 20px; }
-    .page-user a.login-register:hover,
-    .page-user a.login-account:hover,
-    .page-checkout a.login-register:hover,
-    .page-checkout a.login-account:hover {
-      background: #2698f2; }
+.page-user #user-register-form
   .page-user a.login-register,
   .page-checkout a.login-register {
     display: block;
